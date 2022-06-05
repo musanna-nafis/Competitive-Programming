@@ -1,0 +1,26 @@
+ll my1=-1;
+ll bsearch(ll a[],ll last,ll total)
+{
+      ll first=1;
+      my1=-1;
+      while(last>=first)
+      {
+ 
+           ll mid=(first)+((last-first)/ 2);
+ 
+           if(a[mid]>=total)
+           {
+               my1=mid;
+               last=mid-1;
+           }
+           else if(a[mid]<total)
+           {
+ 
+               first=mid+1;
+           }
+ 
+ 
+       }
+ 
+       return my1;
+}
