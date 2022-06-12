@@ -15,6 +15,7 @@ typedef long double     ld;
 #define mem(a,b)        memset(a,b,sizeof(a))
 #define pb              push_back
 #define gcd(a, b)       __gcd(a, b)
+#define pow(a, b)         (long long int)(pow(a,b)+1e-9)
 #define vsorti(v)         sort(v.begin(),v.end())
 #define vsortd(v)         sort(v.begin(), v.end(), greater<int>());
 using namespace std;
