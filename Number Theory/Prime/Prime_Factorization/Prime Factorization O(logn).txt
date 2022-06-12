@@ -29,13 +29,7 @@ void Prime_factor(ll n)
 {
    //lowestPrime[1]=1;
    lowestPrime[2]=2;
-   for(int i=4;i<=n;i+=2)
-   {
-     lowestPrime[i]=2;
-     status[i]=true;
-   }
-
-  for(int i=3;i<=n;i+=2)
+  for(int i=3;i*i<=n;i+=2)
   {
 
     if(status[i]==false)
@@ -71,7 +65,7 @@ int main()
      {
        ll number;
        cin>>number;
-       if(status[number]==false)
+       if((status[number]==false and number%2!=0) or number==2)
        {
          cout<<"It is a prime number"<<endl;
          continue;
@@ -84,8 +78,17 @@ int main()
            //prime_factors[1]++;
            break;
          }
-         prime_factors[lowestPrime[number]]++;
-         number/=lowestPrime[number];
+         if(number%2==0)
+         {
+            prime_factors[2]++;
+            number/=2;
+         }
+         else
+         { 
+           prime_factors[lowestPrime[number]]++;
+           number/=lowestPrime[number];
+         }
+         
        }
        ll x,y;
        for(auto ok: prime_factors)
