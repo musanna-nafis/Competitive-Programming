@@ -84,7 +84,6 @@ int main()
         ll n,c=0,sum=1,n1;
         int i;
         cin>>n;
-        n1=n;
         for(i=0;i<primes.size() and primes[i]*primes[i]<=n;i++)
         {
            
@@ -103,7 +102,7 @@ int main()
         {
              sum=sum*((n+1));
         }
-        cout<<sum-n1;
+        cout<<sum;
         cout<<endl;
      }
       return 0;
