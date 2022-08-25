@@ -1,0 +1,26 @@
+class Solution {
+public:
+    int dp[310][5009];
+      int mydp(vector<int>& coins, int posi,int amount)
+      {
+        if(amount<=0 or posi>=coins.size())
+        {
+            if(amount==0) return 1;
+            else return 0;
+        }
+        if(dp[posi][amount]!=-1) return dp[posi][amount];
+        int x=0,y=0;
+        for(int total_coin=0;total_coin<=amount;total_coin+=coins[posi])
+        {
+             x+=mydp(coins,posi+1,amount-total_coin);
+        }
+          return dp[posi][amount]=x;
+        
+         
+    }
+    int change(int amount, vector<int>& coins) {
+        memset(dp,-1,sizeof(dp));
+        int a=mydp(coins,0,amount);
+        return a;
+    }
+};
