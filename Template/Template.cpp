@@ -12,13 +12,26 @@ typedef long double     ld;
 #define pl(x) printf("%lld", x)
 #define BOOST       ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
 // for(auto i:v)
-#define mem(a,b)        memset(a,b,sizeof(a))
-#define pb              push_back
-#define gcd(a, b)       __gcd(a, b)
-#define pow(a, b)         (long long int)(pow(a,b)+1e-9)
-#define vsorti(v)         sort(v.begin(),v.end())
-#define vsortd(v)         sort(v.begin(), v.end(), greater<int>());
+#define mem(a,b)            memset(a,b,sizeof(a))
+#define pb                  push_back
+#define gcd(a, b)           __gcd(a, b)
+#define lcm(a, b)           ((a*b)/(gcd(a,b)))
+#define pow(a, b)           (ll)(pow(a,b)+1e-9)
+#define vsorti(v)           sort(v.begin(),v.end())
+#define vsortd(v)           sort(v.begin(), v.end(), greater<ll>());
+#define asorti(a,n)         sort(a+1,a+1+n);
+#define asortd(a,n)         sort(a+1,a+1+n, greater<ll>());
+
+
+#define fo(n)               for(int i=1;i<=n;i++)
+#define fov(v)              for(int i=0;i<v.size();i++)
+#define fos(s)              for(int i=0;i<s.size();i++)
+#define size(any)           any.size();
+
 using namespace std;
+
+//Policy based data structure
+/*
 
 bool cmp ( pii A , pii B)
 {
@@ -26,7 +39,7 @@ bool cmp ( pii A , pii B)
 
 }
 
-/*
+
  struct structure_name
  {
 
