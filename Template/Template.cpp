@@ -11,6 +11,7 @@ typedef long double     ld;
 #define sl(x) scanf("%lld", &x)
 #define pl(x) printf("%lld", x)
 #define BOOST       ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+#define fraction() cout.unsetf(ios::floatfield);cout.precision(10);cout.setf(ios::fixed,ios::floatfield);
 // for(auto i:v)
 #define mem(a,b)            memset(a,b,sizeof(a))
 #define pb                  push_back
@@ -26,11 +27,10 @@ typedef long double     ld;
 #define fo(n)               for(int i=1;i<=n;i++)
 #define fov(v)              for(int i=0;i<v.size();i++)
 #define fos(s)              for(int i=0;i<s.size();i++)
-#define size(any)           any.size();
+
 
 using namespace std;
 
-//Policy based data structure
 /*
 
 bool cmp ( pii A , pii B)
@@ -53,49 +53,55 @@ bool cmp ( pii A , pii B)
    }
  };
 */
+////////////////CODE/////////////////////////////////
+
+
+
+
+void solve()
+{
+        ll n,k,i,cou=0,x,y,j,z,sum=intmax,amar=intmax,tar=0;
+        cin>>n;
+        vector<pii>v1,v;
+        for(i=1;i<=n;i++)
+        {
+            cin>>x;
+           v.pb(pii(x,i-1));
+        }
+        for(i=1;i<=n;i++)
+        {
+            cin>>y;
+            v1.pb(pii(y,i-1));
+        }
+         sort(v.begin(),v.end(),cmp);
+         sort(v1.begin(),v1.end(),cmp);
+
+        for(i=0;i<v.size();i++)
+        {
+           amar=min(amar,v[i].second);
+           sum=min(sum,((v1[i].second)+amar));
+        }
+
+        cout<<sum<<endl;
+}
 
 
 int main()
 {
 
-BOOST;
+        BOOST;
        //READ("in.txt");
        //WRITE("out.txt");
 
-        ll q;
+
+        int q;
         cin>>q;
-        while(q--)
+        fo(q)
         {
-            ll n,k,i,cou=0,x,y,j,z,sum=intmax,amar=intmax,tar=0;
-            cin>>n;
-            vector<pii>v1,v;
-            for(i=1;i<=n;i++)
-            {
-                cin>>x;
-               v.pb(pii(x,i-1));
-            }
-            for(i=1;i<=n;i++)
-            {
-                cin>>y;
-                v1.pb(pii(y,i-1));
-            }
-             sort(v.begin(),v.end(),cmp);
-             sort(v1.begin(),v1.end(),cmp);
-
-            for(i=0;i<v.size();i++)
-            {
-               amar=min(amar,v[i].second);
-               //cout<<amar<<" "<<v[i].second<<endl;
-               sum=min(sum,((v1[i].second)+amar));
-            }
-
-            cout<<sum<<endl;
-
-
+           solve();
         }
 
-
-    return 0;
+        return 0;
 }
 
 
