@@ -69,7 +69,7 @@ ll mydp(ll posi)
     
     for(int i=posi+1;i<=n;i++)
     {
-        if(arr[i]>=arr[posi])
+        if(arr[i]>arr[posi])
         {
             ans=max(ans,mydp(i));
         }

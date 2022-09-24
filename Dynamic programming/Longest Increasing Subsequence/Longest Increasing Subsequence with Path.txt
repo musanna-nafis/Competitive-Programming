@@ -69,7 +69,7 @@ ll mydp(ll posi,ll prev)
     ll ans=0;
     ans=max(ans,mydp(posi+1,prev));
 
-    if(prev==0 or arr[prev]<=arr[posi])
+    if(prev==0 or arr[prev]<arr[posi])
     {
         ans=max(ans,mydp(posi+1,posi)+1);
     }
@@ -82,7 +82,7 @@ void print(ll posi,ll prev)
     if(posi>n) return ;
 
 
-    if(prev==0 or arr[prev]<=arr[posi])
+    if(prev==0 or arr[prev]<arr[posi])
     {
         if(dp[posi][prev]==mydp(posi+1,posi)+1)
         {

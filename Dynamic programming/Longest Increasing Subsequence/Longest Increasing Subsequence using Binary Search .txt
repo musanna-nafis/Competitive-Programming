@@ -56,37 +56,30 @@ bool cmp ( pii A , pii B)
 
 ////////////////CODE/////////////////////////////////
 
-
-ll n;
-ll arr[109];
-ll dp[109][109];
-
-ll mydp(ll posi,ll prev)
-{
-    if(posi>n) return 0;
-    if(dp[posi][prev]!=-1) return dp[posi][prev];
-    
-    ll ans=0;
-    ans=max(ans,mydp(posi+1,prev));
-
-    if(prev==0 or arr[prev]<arr[posi])
-    {
-        ans=max(ans,mydp(posi+1,posi)+1);
-    }
-
-    return dp[posi][prev]=ans;
-}
+ll a[10009];
+vector<ll>v;
 
 void solve()
 {
-    mem(dp,-1);
+    v.clear();
+    ll n;
     cin>>n;
     fo(n)
     {
-        cin>>arr[i];
-    }
+        cin>>a[i];
+        if(i==1 or v[v.size()-1]<a[i])
+        {
+            v.pb(a[i]);
+        }
+        else
+        {
+            ll posi=lower_bound(v.begin(),v.end(),a[i])-v.begin();
+            v[posi]=a[i];
+        }
 
-    cout<<mydp(1,0)<<endl;
+    }
+    cout<<v.size()<<endl;
+    
 }
 
 
