@@ -1,0 +1,66 @@
+
+Problem link: https://leetcode.com/problems/longest-string-chain/
+
+
+class Solution {
+public:
+     static bool cmp (string  &i, string &j) {
+        if(i.size()==j.size())
+        {
+            return i<j;
+        }
+        else
+        {
+             return  i.size()<j.size();
+        }
+    }
+    bool decision(string &a,string &b)
+    {
+        int xx=a.size()-b.size();
+        if(xx<0) xx*=-1;
+        if(xx!=1) return false;
+        int m=0,n=0,c=0;
+        while(n<a.size() and m<b.size())
+        {
+            if(a[n]==b[m])
+            {
+                n++;
+                m++;
+            }
+            else
+            {
+                c++;
+                if(a.size()<b.size())
+                {
+                    m++;
+                }
+                else
+                {
+                    n++;
+                }
+            }
+        }
+        if(c==1 or c==0) return true;
+        else return false;
+        
+    }
+    int dp[1009][1009];
+    int mydp(int posi,int prev,vector<string>& v)
+    {
+        if(posi>v.size()) return 0;
+        if(dp[posi][prev]!=-1) return dp[posi][prev];
+        int ans=0;
+        if(prev==0 or decision(v[prev-1],v[posi-1])==true)
+        {
+            ans=max(ans,mydp(posi+1,posi,v)+1);
+        }
+        ans=max(ans,mydp(posi+1,prev,v));
+        return dp[posi][prev]=ans;
+    }
+    int longestStrChain(vector<string>& words) {
+        memset(dp,-1,sizeof(dp));
+        sort(words.begin(),words.end(),cmp);
+        return mydp(1,0,words);
+        
+    }
+};
