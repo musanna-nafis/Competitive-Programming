@@ -64,9 +64,9 @@ void build()
   level[root]=0;
   dfs(root);
   ll lg1=log2(n+2);
-  for(ll i=1;i<=n;i++)
+  for(int j=1;j<=lg1;j++)
   {
-    for(int j=1;j<=lg1;j++)
+    for(ll i=1;i<=n;i++)
     {
         ll xx=T[i][j-1];
         if(xx!=-1)
