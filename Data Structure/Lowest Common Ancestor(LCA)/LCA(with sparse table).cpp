@@ -49,7 +49,7 @@ void dfs(ll node)
 {
     for(auto xx:adj[node])
     {
-        if(T[xx][0]==-1)
+        if(T[xx][0]==-1 and xx!=root)
         {
             T[xx][0]=node;
             level[xx]=level[node]+1;
